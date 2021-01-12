@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: website_resume_development
+  database: shopify_image_repo_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -57,7 +57,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: website_resume_test
+  database: shopify_image_repo_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: website_resume_production
-  username: website_resume
-  password: <%= ENV['WEBSITE_RESUME_DATABASE_PASSWORD'] %>
+  database: shopify_image_repo_production
+  username: shopify_image_repo
+  password: <%= ENV['SHOPIFY_IMAGE_REPO_DATABASE_PASSWORD'] %>
