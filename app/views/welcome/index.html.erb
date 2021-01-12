@@ -1,0 +1,7 @@
+<h1>Welcome to the Image Repo!</h1>
+
+<% if !current_user %>
+  <p>Please Log In or Register!</p>
+  <p><%= link_to 'Log In', "/login" %></p>
+  <p><%= link_to 'Register', "/register" %></p>
+<% end  %>
