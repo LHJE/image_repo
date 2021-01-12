@@ -3,7 +3,11 @@
 <% if !current_user %>
   <section class='login'>
     <p>Please Log In or Register!</p>
-    <p><%= link_to 'Log In', "/login" %></p>
-    <p><%= link_to 'Register', "/register" %></p>
+    <p><%= link_to 'Log In', login_path %></p>
+    <p><%= link_to 'Register', registration_path %></p>
+  </section>
+  <% else %>
+  <section class='logged_in'>
+    <p>You're logged in!</p>
   </section>
 <% end  %>
