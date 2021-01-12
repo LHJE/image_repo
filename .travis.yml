@@ -8,6 +8,6 @@ script:
 - bundle exec rspec
 deploy:
   provider: heroku
-  # api_key: 
-  app: https://website-resume-luke.herokuapp.com/
+  # api_key:
+  app: https://shopify-image-repo-lhje.herokuapp.com/
   run: rails db:migrate
