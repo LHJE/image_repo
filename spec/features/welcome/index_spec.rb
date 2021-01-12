@@ -48,7 +48,7 @@ RSpec.describe 'Welcome Page' do
     end
 
     it "can see greeting noting user is logged in" do
-      expect(page).to have_content("You're already logged in!")
+      expect(page).to have_content("You're logged in!")
     end
   end
 end
