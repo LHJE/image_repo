@@ -42,6 +42,12 @@ RSpec.describe 'Welcome Page' do
 
       expect(current_path).to eq(registration_path)
     end
+
+    it 'can send visitor to /images when link clicked' do
+      click_link "Click Here To See The Image's!"
+
+      expect(current_path).to eq(images_path)
+    end
   end
 
   describe 'As a logged in user' do
