@@ -30,5 +30,15 @@ RSpec.describe 'Welcome Page' do
 
       expect(current_path).to eq(login_path)
     end
+
+    it 'can send visitor to /login when Log In is clicked' do
+      within '.login' do
+        click_link 'Register'
+      end
+
+      expect(current_path).to eq(registration_path)
+    end
   end
+
+
 end
