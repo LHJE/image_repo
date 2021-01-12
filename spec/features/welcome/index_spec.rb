@@ -19,5 +19,9 @@ RSpec.describe 'Welcome Page' do
       expect(page).to have_link("Log In")
     end
 
+    it "can see register link" do
+      expect(page).to have_link("Register")
+    end
+
   end
 end
