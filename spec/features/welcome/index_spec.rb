@@ -40,5 +40,15 @@ RSpec.describe 'Welcome Page' do
     end
   end
 
+  describe 'As a logged in user' do
+    before :each do
+      @user = User.create(name: 'Morgan', email: 'morgan@example.com', password: 'securepassword')
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+      visit root_path
+    end
 
+    it "can see greeting noting user is logged in" do
+      expect(page).to have_content("You're already logged in!")
+    end
+  end
 end
