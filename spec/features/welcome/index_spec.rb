@@ -10,5 +10,10 @@ RSpec.describe 'Welcome Page' do
     it "can see welcome message" do
       expect(page).to have_content("Welcome to the Login Page!")
     end
+
+    it "can see login/register prompt" do
+      expect(page).to have_content("Please Log In or Register!")
+    end
+
   end
 end
