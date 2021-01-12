@@ -60,5 +60,15 @@ RSpec.describe 'Welcome Page' do
     it "can see greeting noting user is logged in" do
       expect(page).to have_content("You're logged in!")
     end
+
+    it 'can see link to image repo' do
+      expect(page).to have_link("Click Here To See The Image's!")
+    end
+
+    it 'can send user to /images when link clicked' do
+      click_link "Click Here To See The Image's!"
+
+      expect(current_path).to eq(images_path)
+    end
   end
 end
