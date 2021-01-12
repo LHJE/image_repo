@@ -8,7 +8,7 @@ RSpec.describe 'Welcome Page' do
     end
 
     it "can see welcome message" do
-      expect(page).to have_content("Welcome to the Login Page!")
+      expect(page).to have_content("Welcome to the Image Repo!")
     end
 
     it "can see login/register prompt" do
