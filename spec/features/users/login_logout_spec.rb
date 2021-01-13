@@ -26,7 +26,23 @@ RSpec.describe 'User Login and Log Out' do
         expect(current_path).to eq('/images')
         expect(page).to have_content('You are already logged in!')
       end
+    end
+  end
 
+  describe 'A registered user can not log in with bad credentials' do
+    before :each do
+      @user = User.create!(name: 'Morgan', email: 'morgan@example.com', password: 'securepassword', password_confirmation: 'securepassword')
+    end
+
+    it 'incorrect email' do
+      visit login_path
+
+      fill_in 'Email', with: 'bad@email.com'
+      fill_in 'Password', with: @user.password
+      click_button 'Log In'
+
+      expect(page).to have_content('Your email or password was incorrect!')
+      expect(page).to have_button('Log In')
     end
   end
 end
