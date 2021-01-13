@@ -56,4 +56,23 @@ RSpec.describe 'User Login and Log Out' do
       expect(page).to have_button('Log In')
     end
   end
+
+  describe 'A logged in user can log out' do
+    before :each do
+      @user = User.create!(name: 'Morgan', email: 'morgan@example.com', password: 'securepassword', password_confirmation: 'securepassword')
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+    end
+
+    it 'I visit the log out path' do
+      visit '/images'
+
+      within 'nav' do
+        click_link 'Log Out'
+      end
+
+      expect(current_path).to eq(root_path)
+      expect(page).to_not have_content("Logged in as #{@user.name}")
+      expect(page).to have_content('You have been logged out!')
+    end
+  end
 end
