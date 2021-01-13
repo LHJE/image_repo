@@ -27,16 +27,16 @@ RSpec.describe 'Images Index' do
 
       it "can see images that have been uploaded" do
         within "#image-#{@image_1.id}" do
-          expect(page).to have_content(@image_1.keyword)
+          expect(page).to have_content(@image_1.keyword.capitalize)
         end
         within "#image-#{@image_2.id}" do
-          expect(page).to have_content(@image_2.keyword)
+          expect(page).to have_content(@image_2.keyword.capitalize)
         end
         within "#image-#{@image_3.id}" do
-          expect(page).to have_content(@image_3.keyword)
+          expect(page).to have_content(@image_3.keyword.capitalize)
         end
         within "#image-#{@image_4.id}" do
-          expect(page).to have_content(@image_4.keyword)
+          expect(page).to have_content(@image_4.keyword.capitalize)
         end
       end
     end
@@ -56,16 +56,16 @@ RSpec.describe 'Images Index' do
 
       it "can see images that have been uploaded" do
         within "#image-#{@image_1.id}" do
-          expect(page).to have_content(@image_1.keyword)
+          expect(page).to have_content(@image_1.keyword.capitalize)
         end
         within "#image-#{@image_2.id}" do
-          expect(page).to have_content(@image_2.keyword)
+          expect(page).to have_content(@image_2.keyword.capitalize)
         end
         within "#image-#{@image_3.id}" do
-          expect(page).to have_content(@image_3.keyword)
+          expect(page).to have_content(@image_3.keyword.capitalize)
         end
         within "#image-#{@image_4.id}" do
-          expect(page).to have_content(@image_4.keyword)
+          expect(page).to have_content(@image_4.keyword.capitalize)
         end
       end
     end
