@@ -29,7 +29,12 @@ class ImagesController < ApplicationController
 
   def edit
     @image = Image.find(params[:id])
+    if !current_user || current_user.id != @image.user_id
+      flash[:notice] = 'You are not authorized to update this image!'
+      redirect_to "/images/#{@image.id}"
+    end
   end
+
 
   def destroy
     image = Image.find(params[:id])
