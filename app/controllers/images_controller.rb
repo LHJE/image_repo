@@ -3,6 +3,10 @@ class ImagesController < ApplicationController
     @images = Image.all.reverse
   end
 
+  def show
+    @image = Image.where(id: params[:id])[0]
+  end
+
   def new
     if !current_user
       flash[:notice] = 'This Page Only Accessible by Authenticated Users. Please Log In.'
