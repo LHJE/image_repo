@@ -9,5 +9,5 @@ Rails.application.routes.draw do
 
   resources :users, only: [:create]
 
-  get '/images', to: 'images#index'
+  resources :images, only: [:index, :new, :create]
 end

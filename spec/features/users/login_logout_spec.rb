@@ -7,7 +7,7 @@ RSpec.describe 'User Login and Log Out' do
         @user = User.create!(name: 'Morgan', email: 'morgan@example.com', password: 'securepassword', password_confirmation: 'securepassword')
       end
 
-      it 'with correct credentials' do
+      it 'can log in with correct credentials' do
         visit login_path
 
         fill_in 'Email', with: @user.email
