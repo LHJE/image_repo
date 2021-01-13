@@ -44,5 +44,16 @@ RSpec.describe 'User Login and Log Out' do
       expect(page).to have_content('Your email or password was incorrect!')
       expect(page).to have_button('Log In')
     end
+
+    it 'incorrect password' do
+      visit login_path
+
+      fill_in 'Email', with: @user.email
+      fill_in 'Password', with: 'bad password'
+      click_button 'Log In'
+
+      expect(page).to have_content('Your email or password was incorrect!')
+      expect(page).to have_button('Log In')
+    end
   end
 end
