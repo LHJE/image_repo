@@ -43,5 +43,14 @@ RSpec.describe 'New Image' do
 
       expect(page).to have_content("keyword: [\"can't be blank\"]")
     end
+
+    it 'cannot upload an image without Url' do
+      visit '/images/new'
+
+      fill_in 'Keyword', with: @image.keyword
+      click_button 'Submit'
+
+      expect(page).to have_content("url: [\"can't be blank\"]")
+    end
   end
 end
