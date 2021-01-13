@@ -58,7 +58,7 @@ RSpec.describe 'Welcome Page' do
     end
 
     it "can see greeting noting user is logged in" do
-      expect(page).to have_content("You're logged in!")
+      expect(page).to have_content("You're logged in Morgan!")
     end
 
     it 'can see link to image repo' do
