@@ -10,6 +10,6 @@
   </section>
   <% else %>
   <section class='logged_in'>
-    <p>You're logged in!</p>
+    <p>You're logged in <%= current_user.name%>!</p>
   </section>
 <% end  %>
