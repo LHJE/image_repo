@@ -10,7 +10,7 @@ RSpec.describe 'Image Page' do
     it 'can see base headers' do
       expect(page).to have_content("The Image Repo!")
       expect(page).to have_content("The Images, most recent at the top:")
-      expect(page).to have_content("Upload:")
+      expect(page).to have_link("Upload An Image")
       expect(page).to have_content("Search:")
     end
   end
