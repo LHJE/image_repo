@@ -2,6 +2,14 @@ require 'rails_helper'
 include ActionView::Helpers::NumberHelper
 
 RSpec.describe 'New Image' do
+  describe 'As a visitor' do
+    it 'is send back to /images' do
+      visit '/images/new'
+
+      expect(page).to have_content('This Page Only Accessible by Authenticated Users. Please Log In.')
+    end
+  end
+
   describe 'As a user' do
     before :each do
       @user = User.create!(name: 'Morgan', email: 'morgan@example.com', password: 'securepassword', password_confirmation: 'securepassword')
