@@ -22,6 +22,16 @@ RSpec.describe 'Images Show' do
         expect(current_path).to eq("/images/#{@image_1.id}")
       end
 
+      it "can see all information about the image, but not update or delete" do
+        within "#image-#{@image_1.id}" do
+          click_link @image_1.keyword.capitalize
+        end
+
+        expect(page).to have_content(@image_1.keyword.capitalize)
+        expect(page).to_not have_link("Update Image")
+        expect(page).to_not have_link("Delete Image")
+      end
+
     end
 
     describe 'As a user' do
@@ -36,6 +46,16 @@ RSpec.describe 'Images Show' do
         end
 
         expect(current_path).to eq("/images/#{@image_1.id}")
+      end
+
+      it "can see all information about the image, including update and delete" do
+        within "#image-#{@image_1.id}" do
+          click_link @image_1.keyword.capitalize
+        end
+
+        expect(page).to have_content(@image_1.keyword.capitalize)
+        expect(page).to_not have_link("Update Image")
+        expect(page).to_not have_link("Delete Image")
       end
     end
   end
