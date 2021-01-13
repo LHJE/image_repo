@@ -33,5 +33,18 @@ RSpec.describe 'User Registration' do
       expect(page).to have_content('Welcome, Morgan!')
     end
 
+    describe 'I can not register as a user if' do
+      it 'I do not complete the registration form' do
+        visit registration_path
+
+        fill_in 'Name', with: 'Morgan'
+        click_button 'Register'
+
+        expect(page).to have_button('Register')
+        expect(page).to have_content("email: [\"can't be blank\"]")
+        expect(page).to have_content("password: [\"can't be blank\", \"can't be blank\"]")
+        expect(page).to have_content("password_confirmation: [\"can't be blank\"]")
+      end
+    end
   end
 end
