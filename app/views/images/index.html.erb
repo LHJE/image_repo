@@ -1,6 +1,19 @@
 <h1>The Image Repo!</h1>
 <h2>Search:</h2>
-<% if current_user %>
-  <h2><%= link_to 'Upload An Image', 'images/new' %></h2>
+<% if !current_user %>
+  <section class='login'>
+    <h2>Please <%= link_to 'Log In', login_path %> or <%= link_to 'Register', registration_path %> if you'd like to Upload an Image!</h2>
+  </section>
+  <% else %>
+  <section class='logged_in'>
+    <h2><%= link_to 'Upload An Image', 'images/new' %></h2>
+  </section>
 <% end %>
+
 <h3>The Images, most recent at the top:</h3>
+<% @images.each do |image| %>
+  <section id='image-<%= image.id%>'>
+    <img src=<%= image.url %>>
+    <p><%= image.keyword %></p>
+  </section>
+<% end %>
