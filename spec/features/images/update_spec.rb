@@ -42,6 +42,16 @@ RSpec.describe 'Images Update' do
         expect(page).to have_content("Image Updated!")
       end
 
+      it "can update url for an image they uploaded" do
+        visit "/images/#{@image_1.id}/edit"
+
+        fill_in 'Url', with: "https://canary.contestimg.wish.com/api/webimage/5d9d51aeea5da17a7fcfac89-large.jpg?cache_buster=c256dc121fb42564b17abdd81d0f8162"
+        click_button 'Submit'
+
+        expect(current_path).to eq("/images/#{@image_1.id}")
+        expect(page).to have_content("Image Updated!")
+      end
+
       it 'cannot update an image if they did not upload it' do
         visit "/images/#{@image_4.id}/edit"
 
