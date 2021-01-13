@@ -6,6 +6,6 @@
 <% if current_user && current_user.id == @image.user_id %>
   <section class='logged_in'>
     <p><%= link_to "Update Image", "/images/#{@image.id}/edit" %></p>
-    <p><%= link_to "Delete Image", "/images/#{@image.id}/destroy" %></p>
+    <p><%= link_to "Delete Image", "/images/#{@image.id}", method: :delete  %></p>
   </section>
 <% end %>
