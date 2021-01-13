@@ -32,7 +32,12 @@ RSpec.describe 'Images Update' do
         visit "/images/#{@image_1.id}/edit"
       end
 
+      it 'cannot update an image if they did not upload it' do
+        visit "/images/#{@image_4.id}/edit"
 
+        expect(current_path).to eq("/images/#{@image_4.id}")
+        expect(page).to have_content('You are not authorized to update this image!')
+      end
 
     end
   end
