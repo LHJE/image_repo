@@ -5,7 +5,7 @@
 
 <% if current_user && current_user.id == @image.user_id %>
   <section class='logged_in'>
-    <p>Update Image</p>
-    <p>Delete Image</p>
+    <p><%= link_to "Update Image", "/images/#{@image.id}/edit" %></p>
+    <p><%= link_to "Delete Image", "/images/#{@image.id}/destroy" %></p>
   </section>
 <% end %>
