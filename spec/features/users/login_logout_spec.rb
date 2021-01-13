@@ -18,6 +18,15 @@ RSpec.describe 'User Login and Log Out' do
         expect(page).to have_content("Logged in as #{@user.name}")
       end
 
+      it 'users already logged in will be redirected' do
+        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+
+        visit login_path
+
+        expect(current_path).to eq('/images')
+        expect(page).to have_content('You are already logged in!')
+      end
+
     end
   end
 end
