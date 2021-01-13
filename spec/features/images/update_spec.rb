@@ -75,6 +75,26 @@ RSpec.describe 'Images Update' do
         expect(page).to have_content("url: [\"can't be blank\"]")
       end
 
+      it "cannot update image they uploaded without keyword filled in" do
+        visit "/images/#{@image_1.id}/edit"
+
+        fill_in 'Keyword', with: ""
+        click_button 'Submit'
+
+        expect(current_path).to eq("/images/#{@image_1.id}")
+        expect(page).to have_content("keyword: [\"can't be blank\"]")
+      end
+
+      it "cannot update image they uploaded without url filled in" do
+        visit "/images/#{@image_1.id}/edit"
+
+        fill_in 'Url', with: ""
+        click_button 'Submit'
+
+        expect(current_path).to eq("/images/#{@image_1.id}")
+        expect(page).to have_content("url: [\"can't be blank\"]")
+      end
+
       it 'cannot update an image if they did not upload it' do
         visit "/images/#{@image_4.id}/edit"
 
