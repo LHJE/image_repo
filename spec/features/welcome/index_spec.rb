@@ -52,7 +52,7 @@ RSpec.describe 'Welcome Page' do
 
   describe 'As a logged in user' do
     before :each do
-      @user = User.create(name: 'Morgan', email: 'morgan@example.com', password: 'securepassword')
+      @user = User.create!(name: 'Morgan', email: 'morgan@example.com', password: 'securepassword', password_confirmation:'securepassword')
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
       visit root_path
     end
