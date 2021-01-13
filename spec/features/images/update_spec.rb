@@ -33,8 +33,6 @@ RSpec.describe 'Images Update' do
       end
 
       it "can update keyword for an image they uploaded" do
-        visit "/images/#{@image_1.id}/edit"
-
         fill_in 'Keyword', with: "kitty"
         click_button 'Submit'
 
@@ -43,8 +41,6 @@ RSpec.describe 'Images Update' do
       end
 
       it "can update url for an image they uploaded" do
-        visit "/images/#{@image_1.id}/edit"
-
         fill_in 'Url', with: "https://canary.contestimg.wish.com/api/webimage/5d9d51aeea5da17a7fcfac89-large.jpg?cache_buster=c256dc121fb42564b17abdd81d0f8162"
         click_button 'Submit'
 
@@ -53,8 +49,6 @@ RSpec.describe 'Images Update' do
       end
 
       it "can update keyword and url for an image they uploaded" do
-        visit "/images/#{@image_1.id}/edit"
-
         fill_in 'Keyword', with: "kitty"
         fill_in 'Url', with: "https://canary.contestimg.wish.com/api/webimage/5d9d51aeea5da17a7fcfac89-large.jpg?cache_buster=c256dc121fb42564b17abdd81d0f8162"
         click_button 'Submit'
@@ -64,8 +58,6 @@ RSpec.describe 'Images Update' do
       end
 
       it "cannot update image they uploaded without all fields filled in" do
-        visit "/images/#{@image_1.id}/edit"
-
         fill_in 'Keyword', with: ""
         fill_in 'Url', with: ""
         click_button 'Submit'
@@ -76,8 +68,6 @@ RSpec.describe 'Images Update' do
       end
 
       it "cannot update image they uploaded without keyword filled in" do
-        visit "/images/#{@image_1.id}/edit"
-
         fill_in 'Keyword', with: ""
         click_button 'Submit'
 
@@ -86,8 +76,6 @@ RSpec.describe 'Images Update' do
       end
 
       it "cannot update image they uploaded without url filled in" do
-        visit "/images/#{@image_1.id}/edit"
-
         fill_in 'Url', with: ""
         click_button 'Submit'
 
