@@ -53,6 +53,21 @@ RSpec.describe 'Images Index' do
         expect(page).to have_link("Upload An Image")
         expect(page).to have_content("Search:")
       end
+
+      it "can see images that have been up" do
+        within "#image-#{@image_1.id}" do
+          expect(page).to have_content(@image_1.keyword)
+        end
+        within "#image-#{@image_2.id}" do
+          expect(page).to have_content(@image_2.keyword)
+        end
+        within "#image-#{@image_3.id}" do
+          expect(page).to have_content(@image_3.keyword)
+        end
+        within "#image-#{@image_4.id}" do
+          expect(page).to have_content(@image_4.keyword)
+        end
+      end
     end
   end
 
