@@ -31,6 +31,7 @@ RSpec.describe 'User Registration' do
 
       expect(current_path).to eq('/images')
       expect(page).to have_content('Welcome, Morgan!')
+      expect(User.all[0].name).to eq('Morgan')
     end
 
     describe 'I can not register as a user if' do
