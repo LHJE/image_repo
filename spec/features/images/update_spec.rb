@@ -32,14 +32,22 @@ RSpec.describe 'Images Update' do
         visit "/images/#{@image_1.id}/edit"
       end
 
+      it "can update keyword for an image they uploaded" do
+        visit "/images/#{@image_1.id}/edit"
+
+        fill_in 'Keyword', with: "kitty"
+        click_button 'Submit'
+
+        expect(current_path).to eq("/images/#{@image_1.id}")
+        expect(page).to have_content("Image Updated!")
+      end
+
       it 'cannot update an image if they did not upload it' do
         visit "/images/#{@image_4.id}/edit"
 
         expect(current_path).to eq("/images/#{@image_4.id}")
         expect(page).to have_content('You are not authorized to update this image!')
       end
-
     end
   end
-
 end
