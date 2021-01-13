@@ -1,0 +1,11 @@
+<h1><%= @image.keyword.capitalize %></h1>
+
+<img src=<%= @image.url %>>
+<p><%= @image.keyword.capitalize %></p>
+
+<% if current_user && current_user.id == @image.user_id %>
+  <section class='logged_in'>
+    <p>Update Image</p>
+    <p>Delete Image</p>
+  </section>
+<% end %>
