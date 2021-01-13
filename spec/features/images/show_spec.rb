@@ -31,7 +31,11 @@ RSpec.describe 'Images Show' do
       end
 
       it 'click on image and be sent to that image show page' do
+        within "#image-#{@image_1.id}" do
+          click_link @image_1.keyword.capitalize
+        end
 
+        expect(current_path).to eq("/images/#{@image_1.id}")
       end
     end
   end
