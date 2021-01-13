@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#logout'
 
   resources :users, only: [:create]
-  resources :images, only: [:index, :new]
+
+  resources :images, only: [:index, :new, :create]
 end
