@@ -6,6 +6,17 @@ class SessionsController < ApplicationController
     login_redirect(current_user)
   end
 
+  def login
+    user = User.find_by(email: params[:email])
+    if user && user.authenticate(params[:password])
+      flash[:notice] = "Logged in as #{user.name}"
+      redirect_to '/images'
+    else
+      flash[:notice] = 'Your email or password was incorrect!'
+      render :new
+    end
+  end
+
   def logout
     session.delete(:user_id)
     flash[:notice] = 'You have been logged out!'
