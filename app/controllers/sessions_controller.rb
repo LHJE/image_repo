@@ -27,6 +27,6 @@ class SessionsController < ApplicationController
 
   def login_redirect(user)
     session[:user_id] = user.id
-    redirect_to repo_path
+    redirect_to '/images'
   end
 end
