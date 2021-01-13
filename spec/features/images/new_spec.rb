@@ -31,7 +31,7 @@ RSpec.describe 'New Image' do
       click_button 'Submit'
 
       expect(current_path).to eq('/images')
-      expect(page).to have_content('Image Uploaded!')
+      expect(page).to have_content("#{@image.keyword.capitalize} Image Uploaded!")
       expect(Image.all[0].keyword).to eq(@image.keyword)
     end
   end
