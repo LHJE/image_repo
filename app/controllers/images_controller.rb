@@ -35,10 +35,10 @@ class ImagesController < ApplicationController
     image = Image.find(params[:id])
     if current_user && current_user.id == image.user_id
       image.destroy
-      flash[:notice] = "Image Deleted!"
+      flash[:notice] = 'Image Deleted!'
       redirect_to '/images'
     else
-      flash[:notice] = "You are not authorized to delete this image!"
+      flash[:notice] = 'You are not authorized to delete this image!'
       redirect_to "/images/#{image.id}"
     end
   end
