@@ -60,6 +60,7 @@ RSpec.describe 'Site Navigation' do
         end
 
         expect(current_path).to eq(root_path)
+        expect(page).to have_content('You have been logged out!')
       end
     end
 
