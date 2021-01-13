@@ -4,7 +4,7 @@ RSpec.describe 'User Login and Log Out' do
   describe 'A registered user can log in' do
     describe 'As a default user' do
       before :each do
-        @user = User.create!(name: 'Morgan', email: 'morgan@example.com', password: 'securepassword', password_confirmation:'securepassword')
+        @user = User.create!(name: 'Morgan', email: 'morgan@example.com', password: 'securepassword', password_confirmation: 'securepassword')
       end
 
       it 'with correct credentials' do
