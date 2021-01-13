@@ -20,6 +20,18 @@ RSpec.describe 'User Registration' do
       expect(current_path).to eq(registration_path)
     end
 
-    
+    it 'I can register as a user' do
+      visit registration_path
+
+      fill_in 'Name', with: 'Morgan'
+      fill_in 'Email', with: 'morgan@example.com'
+      fill_in 'Password', with: 'securepassword'
+      fill_in 'Password confirmation', with: 'securepassword'
+      click_button 'Register'
+
+      expect(current_path).to eq('/images')
+      expect(page).to have_content('Welcome, Morgan!')
+    end
+
   end
 end
