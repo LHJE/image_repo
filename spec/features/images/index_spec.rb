@@ -25,7 +25,7 @@ RSpec.describe 'Images Index' do
         end
       end
 
-      it "can see images that have been up" do
+      it "can see images that have been uploaded" do
         within "#image-#{@image_1.id}" do
           expect(page).to have_content(@image_1.keyword)
         end
@@ -54,7 +54,7 @@ RSpec.describe 'Images Index' do
         expect(page).to have_content("Search:")
       end
 
-      it "can see images that have been up" do
+      it "can see images that have been uploaded" do
         within "#image-#{@image_1.id}" do
           expect(page).to have_content(@image_1.keyword)
         end
