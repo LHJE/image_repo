@@ -1,0 +1,11 @@
+<h1>Edit Image</h1>
+
+<%= form_for @image, method: :patch do %>
+  <%= label_tag :keyword %>
+  <%= text_field_tag :keyword %>
+
+  <%= label_tag :url %>
+  <%= text_field_tag :url %>
+
+  <%= submit_tag 'Submit' %>
+<% end %>
