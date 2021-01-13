@@ -12,6 +12,17 @@ RSpec.describe 'Site Navigation' do
 
         expect(current_path).to eq(root_path)
       end
+
+      it 'the login page' do
+        visit root_path
+
+        within 'nav' do
+          click_link 'Log In'
+        end
+
+        expect(current_path).to eq(login_path)
+      end
+
     end
   end
 end
