@@ -1,5 +1,7 @@
 class ImagesController < ApplicationController
-  def index; end
+  def index
+    @images = Image.all.reverse
+  end
 
   def new
     if !current_user
