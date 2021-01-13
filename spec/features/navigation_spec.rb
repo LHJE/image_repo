@@ -52,6 +52,29 @@ RSpec.describe 'Site Navigation' do
         expect(current_path).to eq(root_path)
       end
 
+      it 'the logout page' do
+        visit root_path
+
+        within 'nav' do
+          click_link 'Log Out'
+        end
+
+        expect(current_path).to eq(root_path)
+      end
+    end
+
+    describe 'I do not see in my nav bar' do
+      it 'the login link' do
+        visit root_path
+
+        expect(page).to_not have_link('Log In')
+      end
+
+      it 'the registration link' do
+        visit root_path
+
+        expect(page).to_not have_link('Register')
+      end
     end
   end
 end
