@@ -35,6 +35,16 @@ class ImagesController < ApplicationController
     end
   end
 
+  def update
+    @image = Image.find(params[:id])
+    if @image.update(image_params)
+      flash[:notice] = "Image Updated!"
+      redirect_to "/images/#{@image.id}"
+    else
+      generate_flash(@image)
+      render :edit
+    end
+  end
 
   def destroy
     image = Image.find(params[:id])
