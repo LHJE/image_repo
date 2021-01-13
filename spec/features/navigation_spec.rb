@@ -23,6 +23,16 @@ RSpec.describe 'Site Navigation' do
         expect(current_path).to eq(login_path)
       end
 
+      it 'the registraton page' do
+        visit root_path
+
+        within 'nav' do
+          click_link 'Register'
+        end
+
+        expect(current_path).to eq(registration_path)
+      end
     end
   end
+
 end
