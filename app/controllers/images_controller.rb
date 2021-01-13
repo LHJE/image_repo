@@ -9,4 +9,21 @@ class ImagesController < ApplicationController
       @image = Image.new
     end
   end
+
+  def create
+    @image = current_user.images.create(image_params)
+    if @image.save
+      flash[:notice] = "#{@image.keyword.capitalize} Image Uploaded!"
+      redirect_to '/images'
+    else
+      generate_flash(@image)
+      render :new
+    end
+  end
+
+  private
+
+  def image_params
+    params.require(:image).permit(:keyword, :url, :user_id)
+  end
 end
