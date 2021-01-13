@@ -54,8 +54,17 @@ RSpec.describe 'Images Show' do
         end
 
         expect(page).to have_content(@image_1.keyword.capitalize)
-        expect(page).to_not have_link("Update Image")
-        expect(page).to_not have_link("Delete Image")
+        expect(page).to have_link("Update Image")
+        expect(page).to have_link("Delete Image")
+      end
+
+      it "can click on Update Image and be sent to edit page" do
+        within "#image-#{@image_1.id}" do
+          click_link @image_1.keyword.capitalize
+        end
+
+        click_link("Update Image")
+        expect(current_path).to eq("/images/#{@image_1.id}/edit")
       end
     end
   end
