@@ -67,7 +67,7 @@ RSpec.describe 'New Image' do
       click_button 'Submit'
 
       within "#image-#{Image.all[-1].id}" do
-        expect(page).to have_content(@new_image.keyword)
+        expect(page).to have_content(@new_image.keyword.capitalize)
       end
     end
   end
