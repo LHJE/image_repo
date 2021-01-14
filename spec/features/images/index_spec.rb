@@ -50,16 +50,16 @@ RSpec.describe 'Images Index', type: :view do
         visit '/images'
 
         within "#image-#{@image_1.id}" do
-          expect(page).to have_content(@image_1.keyword.capitalize)
+          expect(page).to have_content(@image_1.title)
         end
         within "#image-#{@image_2.id}" do
-          expect(page).to have_content(@image_2.keyword.capitalize)
+          expect(page).to have_content(@image_2.title)
         end
         within "#image-#{@image_3.id}" do
-          expect(page).to have_content(@image_3.keyword.capitalize)
+          expect(page).to have_content(@image_3.title)
         end
         within "#image-#{@image_4.id}" do
-          expect(page).to have_content(@image_4.keyword.capitalize)
+          expect(page).to have_content(@image_4.title)
         end
       end
     end
@@ -78,18 +78,21 @@ RSpec.describe 'Images Index', type: :view do
 
       it "can see images that have been uploaded" do
         within "#image-#{@image_1.id}" do
-          expect(page).to have_content(@image_1.keyword.capitalize)
+          expect(page).to have_content(@image_1.title)
         end
         within "#image-#{@image_2.id}" do
-          expect(page).to have_content(@image_2.keyword.capitalize)
+          expect(page).to have_content(@image_2.title)
         end
         within "#image-#{@image_3.id}" do
-          expect(page).to have_content(@image_3.keyword.capitalize)
+          expect(page).to have_content(@image_3.title)
         end
         within "#image-#{@image_4.id}" do
-          expect(page).to have_content(@image_4.keyword.capitalize)
+          expect(page).to have_content(@image_4.title)
         end
       end
+
+      #test clicking edit button and delete button.
+
     end
   end
 
