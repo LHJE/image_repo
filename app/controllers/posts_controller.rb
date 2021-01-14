@@ -4,28 +4,38 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.all.reverse
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @posts = Post.where(id: params[:id])[0]
   end
 
   # GET /posts/new
   def new
-    @post = Post.new
+    if !current_user
+      flash[:notice] = 'This Page Only Accessible by Authenticated Users. Please Log In.'
+      redirect_to '/posts'
+    else
+      @post = Post.new
+    end
   end
 
   # GET /posts/1/edit
   def edit
+    @post = Post.find(params[:id])
+    return unless !current_user || current_user.id != @post.user_id
+
+    flash[:notice] = 'You are not authorized to update this post!'
+    redirect_to "/posts"
   end
 
   # POST /posts
   # POST /posts.json
   def create
-    @post = Post.new(post_params)
-
+    @post = current_user.posts.create(post_params)
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
@@ -69,6 +79,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:title, :body, :keyword, :image)
+      params.require(:post).permit(:title, :body, :keyword, :user_id, :image)
     end
 end
