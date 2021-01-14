@@ -1,5 +1,5 @@
 class SearchController < ApplicationController
   def index
-    @images = Image.where(keyword: params[:keyword]).reverse
+    @posts = Post.where(keyword: params[:keyword]).reverse
   end
 end
