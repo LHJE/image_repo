@@ -12,7 +12,7 @@ RSpec.describe 'Welcome Page' do
     end
 
     it 'can see link to image repo' do
-      expect(page).to have_link("Click Here To See The Image's!")
+      expect(page).to have_link("Click Here To See The Images!")
     end
 
     it 'can see login/register prompt' do
@@ -44,7 +44,7 @@ RSpec.describe 'Welcome Page' do
     end
 
     it 'can send visitor to /images when link clicked' do
-      click_link "Click Here To See The Image's!"
+      click_link "Click Here To See The Images!"
 
       expect(current_path).to eq(images_path)
     end
@@ -62,11 +62,11 @@ RSpec.describe 'Welcome Page' do
     end
 
     it 'can see link to image repo' do
-      expect(page).to have_link("Click Here To See The Image's!")
+      expect(page).to have_link("Click Here To See The Images!")
     end
 
     it 'can send user to /images when link clicked' do
-      click_link "Click Here To See The Image's!"
+      click_link "Click Here To See The Images!"
 
       expect(current_path).to eq(images_path)
     end
