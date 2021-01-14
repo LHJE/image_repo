@@ -15,8 +15,12 @@
           <td><%= image.title %></td>
           <td><%= image.body %></td>
           <td><%= link_to 'Show', image %></td>
-          <td><%= link_to 'Edit', edit_image_path(image) %></td>
-          <td><%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% if current_user && current_user.id == image.user_id %>
+            <section class='logged_in'>
+              <td><%= link_to 'Edit', edit_image_path(image) %> </td>
+              <td><%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </section>
+          <% end %>
         </section>
       </tr>
     <% end %>
