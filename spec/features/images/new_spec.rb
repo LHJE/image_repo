@@ -62,9 +62,9 @@ RSpec.describe 'New Image', type: :view do
 
       click_button 'Create Image'
 
-      expect(current_path).to eq('/images')
-      expect(page).to have_content("#{@new_image.keyword.capitalize} Image Uploaded!")
-      expect(Image.all[-1].keyword).to eq(@new_image.keyword)
+      expect(current_path).to eq("/images/#{Image.all[-1].id}")
+      expect(page).to have_content("Image was successfully created.")
+      expect(Image.all[-1].keyword).to eq(@new_image[:keyword])
     end
 
     it 'cannot upload an image without all fields filled in' do
@@ -87,8 +87,10 @@ RSpec.describe 'New Image', type: :view do
 
       click_button 'Create Image'
 
+      visit '/images'
+
       within "#image-#{Image.all[-1].id}" do
-        expect(page).to have_content(@new_image.title)
+        expect(page).to have_content(@new_image[:title])
       end
     end
   end
