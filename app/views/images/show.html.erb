@@ -5,7 +5,7 @@
   <%= @image.title %>
 </p>
 
-<%= image_tag(@image.image, style:'width:100%') %>
+<%= image_tag(@image.image, style:'width:100%') if @image.image.attached? %>
 
 <p>
   <strong>Body:</strong>
@@ -17,5 +17,9 @@
   <%= @image.keyword %>
 </p>
 
-<%= link_to 'Edit', edit_image_path(@image) %> |
+<% if current_user && current_user.id == @image.user_id %>
+  <section class='logged_in'>
+    <p><%= link_to 'Edit', edit_image_path(@image) %> |</p>
+  </section>
+<% end %>
 <%= link_to 'Back', images_path %>
