@@ -18,7 +18,6 @@ RSpec.describe 'Images Index' do
         expect(page).to have_content("The Images, most recent at the top:")
         expect(page).to_not have_link("Upload An Image")
         expect(page).to have_content("Please Log In or Register if you'd like to Upload an Image!")
-        expect(page).to have_content("Search:")
         within '.login' do
           expect(page).to have_link("Log In")
           expect(page).to have_link("Register")
@@ -51,7 +50,6 @@ RSpec.describe 'Images Index' do
         expect(page).to have_content("The Image Repo!")
         expect(page).to have_content("The Images, most recent at the top:")
         expect(page).to have_link("Upload An Image")
-        expect(page).to have_content("Search:")
       end
 
       it "can see images that have been uploaded" do
