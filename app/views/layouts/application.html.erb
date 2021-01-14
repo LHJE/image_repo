@@ -12,12 +12,13 @@
   <body>
     <nav>
       <%= link_to 'Home', root_path %>
+      <%= link_to 'All Images', '/images' %>
       <%= link_to 'Register', registration_path unless current_user %>
       <%= link_to 'Log In', login_path unless current_user %>
       <% if current_user %>
         <%= link_to 'Log Out', logout_path %>
       <% end %>
-      <%= form_tag "/images", method: :get do %> <%= text_field_tag :keywords %> <%= submit_tag "Search By Keyword", class: :button %>
+      <%= form_tag "/search", method: :get do %> <%= text_field_tag :keywords %> <%= submit_tag "Search By Keyword", class: :button %>
       <% end %>
     </nav>
     <% flash.each do |type, message| %>
