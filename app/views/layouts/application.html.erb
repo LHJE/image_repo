@@ -18,7 +18,7 @@
       <% if current_user %>
         <%= link_to 'Log Out', logout_path %>
       <% end %>
-      <%= form_tag "/search", method: :get do %> <%= text_field_tag :keywords %> <%= submit_tag "Search By Keyword", class: :button %>
+      <%= form_tag "/search", method: :get do %> <%= text_field_tag :keyword %> <%= submit_tag "Search With One Keyword", class: :button %>
       <% end %>
     </nav>
     <% flash.each do |type, message| %>
