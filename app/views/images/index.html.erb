@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Posts</h1>
+<h1>Images</h1>
 
 <%= render "shared/image_results" %>
 
@@ -9,5 +9,5 @@
 <% if !current_user %>
   <p>If you'd like to upload an image, please log in!</p>
 <% else %>
-  <%= link_to 'New Post', '/posts/new' %>
+  <%= link_to 'New Image', '/images/new' %>
 <% end %>

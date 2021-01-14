@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe "posts/show", type: :view do
+RSpec.describe "images/show", type: :view do
   before(:each) do
-    @post = assign(:post, Post.create!(
+    @image = assign(:image, Image.create!(
       title: "Title",
       body: "MyText"
     ))

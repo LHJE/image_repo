@@ -1,4 +1,4 @@
-class Post < ApplicationRecord
+class Image < ApplicationRecord
   belongs_to :user
   has_one_attached :image
 
