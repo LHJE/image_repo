@@ -6,27 +6,27 @@ RSpec.describe 'Images Update', type: :view do
     @user_1 = User.create(name: 'Morgan', email: 'morgan@example.com', password: 'securepassword', password_confirmation: 'securepassword')
     @user_2 = User.create(name: 'Jackie Chan', email: 'its@jackie.com', password: 'securepassword', password_confirmation: 'securepassword')
     @image_1 = assign(:image, Image.create!(
-      title: "MyString",
-      body: "MyText",
-      keyword: "MyString",
+      title: "MyString1",
+      body: "MyText1",
+      keyword: "MyString1",
       user_id: @user_1.id
     ))
     @image_2 = assign(:image, Image.create!(
-      title: "MyString",
-      body: "MyText",
-      keyword: "MyString",
+      title: "MyString2",
+      body: "MyText2",
+      keyword: "MyString2",
       user_id: @user_1.id
     ))
     @image_3 = assign(:image, Image.create!(
-      title: "MyString",
-      body: "MyText",
-      keyword: "MyString",
+      title: "MyString3",
+      body: "MyText3",
+      keyword: "MyString3",
       user_id: @user_2.id
     ))
     @image_4 = assign(:image, Image.create!(
-      title: "MyString",
-      body: "MyText",
-      keyword: "MyString",
+      title: "MyString4",
+      body: "MyText4",
+      keyword: "MyString4",
       user_id: @user_2.id
     ))
   end
@@ -54,7 +54,7 @@ RSpec.describe 'Images Update', type: :view do
       click_button 'Update Image'
 
       expect(current_path).to eq("/images/#{@image_1.id}")
-      expect(page).to have_content("Image Updated!")
+      expect(page).to have_content("Image was successfully updated.")
     end
 
     it "can update title for an image they uploaded" do
@@ -64,7 +64,7 @@ RSpec.describe 'Images Update', type: :view do
       click_button 'Update Image'
 
       expect(current_path).to eq("/images/#{@image_1.id}")
-      expect(page).to have_content("Image Updated!")
+      expect(page).to have_content("Image was successfully updated.")
     end
 
     it "can update title for an image they uploaded" do
@@ -74,7 +74,7 @@ RSpec.describe 'Images Update', type: :view do
       click_button 'Update Image'
 
       expect(current_path).to eq("/images/#{@image_1.id}")
-      expect(page).to have_content("Image Updated!")
+      expect(page).to have_content("Image was successfully updated.")
     end
 
     it "can update all fields for an image they uploaded" do
@@ -86,7 +86,7 @@ RSpec.describe 'Images Update', type: :view do
       click_button 'Update Image'
 
       expect(current_path).to eq("/images/#{@image_1.id}")
-      expect(page).to have_content("Image Updated!")
+      expect(page).to have_content("Image was successfully updated.")
     end
 
     it "cannot update image they uploaded without all fields filled in" do
