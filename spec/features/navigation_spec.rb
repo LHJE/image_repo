@@ -3,6 +3,17 @@ require 'rails_helper'
 RSpec.describe 'Site Navigation' do
   describe 'As a Visitor' do
     describe 'I see a nav bar where I can link to' do
+      it 'the nav bar' do
+        visit root_path
+
+        within 'nav' do
+          expect(page).to have_link("Home")
+          expect(page).to have_link("Log In")
+          expect(page).to have_link("Register")
+          expect(page).to have_content("Search:")
+        end
+      end
+
       it 'the welcome page' do
         visit login_path
 
@@ -42,6 +53,16 @@ RSpec.describe 'Site Navigation' do
     end
 
     describe 'I see a nav bar where I can link to' do
+      it 'the nav bar' do
+        visit root_path
+
+        within 'nav' do
+          expect(page).to have_link("Home")
+          expect(page).to have_link("Log Out")
+          expect(page).to have_content("Search:")
+        end
+      end
+
       it 'the welcome page' do
         visit '/images'
 
