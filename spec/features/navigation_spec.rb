@@ -1,16 +1,36 @@
 require 'rails_helper'
 
-RSpec.describe 'Site Navigation' do
+RSpec.describe 'Site Navigation', type: :view do
   before :each do
     @user_1 = User.create(name: 'Morgan', email: 'morgan@example.com', password: 'securepassword', password_confirmation: 'securepassword')
     @user_2 = User.create(name: 'Jackie Chan', email: 'its@jackie.com', password: 'securepassword', password_confirmation: 'securepassword')
-    @image_1 = @user_1.images.create(keyword: "cat", url: "https://images.unsplash.com/photo-1561948955-570b270e7c36?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=518&q=80")
-    @image_2 = @user_1.images.create(keyword: "dog", url: "https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/20122208/Samoyed-standing-in-the-forest.jpg")
-    @image_3 = @user_2.images.create(keyword: "cat", url: "https://www.mcgill.ca/oss/files/oss/styles/hd/public/cute-3281819_1920.jpg?itok=1tLaIhp2&timestamp=1569533232")
-    @image_4 = @user_2.images.create(keyword: "moose", url: "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_3481,w_3481,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1080/moose.shutter_t5itks.jpg")
+    @image_1 = assign(:image, Image.create!(
+      title: "MyString",
+      body: "MyText",
+      keyword: "MyString",
+      user_id: @user_1.id
+    ))
+    @image_2 = assign(:image, Image.create!(
+      title: "MyString",
+      body: "MyText",
+      keyword: "MyString",
+      user_id: @user_1.id
+    ))
+    @image_3 = assign(:image, Image.create!(
+      title: "MyString",
+      body: "MyText",
+      keyword: "MyString",
+      user_id: @user_2.id
+    ))
+    @image_4 = assign(:image, Image.create!(
+      title: "MyString",
+      body: "MyText",
+      keyword: "MyString",
+      user_id: @user_2.id
+    ))
   end
 
-  describe 'As a Visitor' do
+  describe 'As a Visitor', type: :feature do
     describe 'I see a nav bar where I can link to' do
       it 'the nav bar' do
         visit root_path
@@ -85,7 +105,7 @@ RSpec.describe 'Site Navigation' do
     end
   end
 
-  describe 'As a User' do
+  describe 'As a User', type: :feature do
     before :each do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user_1)
     end
@@ -132,7 +152,7 @@ RSpec.describe 'Site Navigation' do
         expect(current_path).to eq(root_path)
         expect(page).to have_content('You have been logged out!')
       end
-      
+
       it 'can Search With One Keyword' do
         visit root_path
 
