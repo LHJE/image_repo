@@ -1,1 +1,9 @@
 <h1>Your Search Results!</h1>
+
+<h3>The Images, most recent at the top:</h3>
+<% @images.each do |image| %>
+  <section id='image-<%= image.id%>'>
+    <%= link_to image_tag(image.url), "/images/#{image.id}" %>
+    <p><%= link_to image.keyword.capitalize, "/images/#{image.id}" %></p>
+  </section>
+<% end %>
