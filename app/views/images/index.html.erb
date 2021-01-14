@@ -1,13 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Images</h1>
+<h1>The Image Repo!</h1>
 
 <%= render "shared/image_results" %>
 
 <br>
 
 <% if !current_user %>
-  <p>If you'd like to upload an image, please log in!</p>
+  <section class='login'>
+    <p>Please <%= link_to 'Log In', login_path %> or <%= link_to 'Register', registration_path %> if you'd like to Upload an Image!</p>
+  </section>
 <% else %>
-  <%= link_to 'New Image', '/images/new' %>
+  <section class='logged_in'>
+    <p><%= link_to 'Upload An Image', 'images/new' %></p>
+  </section>
 <% end %>
