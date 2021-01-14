@@ -132,6 +132,25 @@ RSpec.describe 'Site Navigation' do
         expect(current_path).to eq(root_path)
         expect(page).to have_content('You have been logged out!')
       end
+      
+      it 'can Search With One Keyword' do
+        visit root_path
+
+        within 'nav' do
+          fill_in :keyword, with: @image_1.keyword
+          click_button 'Search With One Keyword'
+        end
+
+        expect(current_path).to eq('/search')
+        expect(page).to_not have_content(@image_2.keyword.capitalize)
+        expect(page).to_not have_content(@image_4.keyword.capitalize)
+        within "#image-#{@image_1.id}" do
+          expect(page).to have_content(@image_1.keyword.capitalize)
+        end
+        within "#image-#{@image_3.id}" do
+          expect(page).to have_content(@image_3.keyword.capitalize)
+        end
+      end
     end
 
     describe 'I do not see in my nav bar' do
