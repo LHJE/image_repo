@@ -29,16 +29,16 @@ class ImagesController < ApplicationController
 
   def edit
     @image = Image.find(params[:id])
-    if !current_user || current_user.id != @image.user_id
-      flash[:notice] = 'You are not authorized to update this image!'
-      redirect_to "/images/#{@image.id}"
-    end
+    return unless !current_user || current_user.id != @image.user_id
+
+    flash[:notice] = 'You are not authorized to update this image!'
+    redirect_to "/images/#{@image.id}"
   end
 
   def update
     @image = Image.find(params[:id])
     if @image.update(image_params)
-      flash[:notice] = "Image Updated!"
+      flash[:notice] = 'Image Updated!'
       redirect_to "/images/#{@image.id}"
     else
       generate_flash(@image)
