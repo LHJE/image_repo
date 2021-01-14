@@ -10,7 +10,7 @@ class ImagesController < ApplicationController
   # GET /images/1
   # GET /images/1.json
   def show
-    @images = Image.where(id: params[:id])[0]
+    @image = Image.where(id: params[:id])[0]
   end
 
   # GET /images/new
