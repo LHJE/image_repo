@@ -5,27 +5,27 @@ RSpec.describe 'Site Navigation', type: :view do
     @user_1 = User.create(name: 'Morgan', email: 'morgan@example.com', password: 'securepassword', password_confirmation: 'securepassword')
     @user_2 = User.create(name: 'Jackie Chan', email: 'its@jackie.com', password: 'securepassword', password_confirmation: 'securepassword')
     @image_1 = assign(:image, Image.create!(
-      title: "MyString",
-      body: "MyText",
+      title: "MyString1",
+      body: "MyText1",
       keyword: "MyString",
       user_id: @user_1.id
     ))
     @image_2 = assign(:image, Image.create!(
-      title: "MyString",
-      body: "MyText",
-      keyword: "MyString",
+      title: "MyString2",
+      body: "MyText2",
+      keyword: "MyString2",
       user_id: @user_1.id
     ))
     @image_3 = assign(:image, Image.create!(
-      title: "MyString",
-      body: "MyText",
+      title: "MyString3",
+      body: "MyText3",
       keyword: "MyString",
       user_id: @user_2.id
     ))
     @image_4 = assign(:image, Image.create!(
-      title: "MyString",
-      body: "MyText",
-      keyword: "MyString",
+      title: "MyString4",
+      body: "MyText4",
+      keyword: "MyString2",
       user_id: @user_2.id
     ))
   end
@@ -93,13 +93,13 @@ RSpec.describe 'Site Navigation', type: :view do
         end
 
         expect(current_path).to eq('/search')
-        expect(page).to_not have_content(@image_2.keyword.capitalize)
-        expect(page).to_not have_content(@image_4.keyword.capitalize)
+        expect(page).to_not have_content(@image_2.title)
+        expect(page).to_not have_content(@image_4.title)
         within "#image-#{@image_1.id}" do
-          expect(page).to have_content(@image_1.keyword.capitalize)
+          expect(page).to have_content(@image_1.title)
         end
         within "#image-#{@image_3.id}" do
-          expect(page).to have_content(@image_3.keyword.capitalize)
+          expect(page).to have_content(@image_3.title)
         end
       end
     end
@@ -162,13 +162,13 @@ RSpec.describe 'Site Navigation', type: :view do
         end
 
         expect(current_path).to eq('/search')
-        expect(page).to_not have_content(@image_2.keyword.capitalize)
-        expect(page).to_not have_content(@image_4.keyword.capitalize)
+        expect(page).to_not have_content(@image_2.title)
+        expect(page).to_not have_content(@image_4.title)
         within "#image-#{@image_1.id}" do
-          expect(page).to have_content(@image_1.keyword.capitalize)
+          expect(page).to have_content(@image_1.title)
         end
         within "#image-#{@image_3.id}" do
-          expect(page).to have_content(@image_3.keyword.capitalize)
+          expect(page).to have_content(@image_3.title)
         end
       end
     end
