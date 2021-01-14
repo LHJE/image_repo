@@ -10,7 +10,7 @@ RSpec.describe 'Site Navigation' do
           expect(page).to have_link("Home")
           expect(page).to have_link("Log In")
           expect(page).to have_link("Register")
-          expect(page).to have_content("Search:")
+          expect(page).to have_button("Search By Keyword")
         end
       end
 
@@ -59,7 +59,7 @@ RSpec.describe 'Site Navigation' do
         within 'nav' do
           expect(page).to have_link("Home")
           expect(page).to have_link("Log Out")
-          expect(page).to have_content("Search:")
+          expect(page).to have_button("Search By Keyword")
         end
       end
 
