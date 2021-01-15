@@ -99,9 +99,14 @@ RSpec.describe 'Images Index', type: :view do
         expect(current_path).to eq("/images/#{@image_1.id}/edit")
       end
 
-      #test clicking edit button and delete button.
+      it "can go to update page when Edit clicked" do
+        within "#image-#{@image_1.id}" do
+          click_link 'Destroy'
+        end
 
+        expect(current_path).to eq("/images")
+        expect(page).to_not have_content(@image_1.title)
+      end
     end
   end
-
 end
