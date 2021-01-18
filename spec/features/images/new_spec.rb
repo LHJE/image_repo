@@ -66,7 +66,7 @@ RSpec.describe 'New Image', type: :view do
 
       expect(current_path).to eq("/images/#{Image.all[-1].id}")
       expect(page).to have_content("Image was successfully created.")
-      expect(Image.all[-1].keyword).to eq(@new_image[:keyword])
+      expect(Image.all[-1].keyword).to eq(@new_image[:keyword].downcase)
     end
 
     it 'cannot upload an image without all fields filled in' do

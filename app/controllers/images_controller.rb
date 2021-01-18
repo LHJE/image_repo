@@ -36,6 +36,7 @@ class ImagesController < ApplicationController
   # POST /images.json
   def create
     @image = current_user.images.create(image_params)
+    @image.keyword = @image.keyword.downcase
     respond_to do |format|
       if @image.save
         format.html { redirect_to @image, notice: 'Image was successfully created.' }
