@@ -51,7 +51,7 @@ RSpec.describe 'Site Navigation', type: :view do
 
         within 'nav' do
           expect(page).to have_link("Home")
-          expect(page).to have_link("All Images")
+          expect(page).to have_link("Image Database")
           expect(page).to have_link("Log In")
           expect(page).to have_link("Register")
           expect(page).to have_button("Search With One Keyword")
@@ -72,7 +72,7 @@ RSpec.describe 'Site Navigation', type: :view do
         visit login_path
 
         within 'nav' do
-          click_link 'All Images'
+          click_link 'Image Database'
         end
 
         expect(current_path).to eq('/images')
@@ -130,7 +130,7 @@ RSpec.describe 'Site Navigation', type: :view do
 
         within 'nav' do
           expect(page).to have_link("Home")
-          expect(page).to have_link("All Images")
+          expect(page).to have_link("Image Database")
           expect(page).to have_link("Log Out")
           expect(page).to have_button("Search With One Keyword")
         end
@@ -150,7 +150,7 @@ RSpec.describe 'Site Navigation', type: :view do
         visit login_path
 
         within 'nav' do
-          click_link 'All Images'
+          click_link 'Image Database'
         end
 
         expect(current_path).to eq('/images')
