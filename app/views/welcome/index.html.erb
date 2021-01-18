@@ -1,6 +1,6 @@
 <h1>Welcome to Luke's Image Repo!</h1>
 
-<h3><%= link_to "Click Here To See The Images!", "/images" %></h3>
+<h3><%= link_to "Click Here To See The Image Database!", "/images" %></h3>
 
 <% if !current_user %>
   <section class='login'>
@@ -12,4 +12,11 @@
   <section class='logged_in'>
     <p>You're logged in <%= current_user.name%>!</p>
   </section>
+<% end %>
+
+<h3>Check Out All The Images We Have So Far:</h3>
+<% @images.each do |image| %>
+  <% if !image.image.nil? %>
+    <%= image_tag(image.image, style:'width:10%') if image.image.attached? %>
+  <% end %>
 <% end %>
