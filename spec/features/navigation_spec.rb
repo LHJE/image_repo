@@ -98,6 +98,22 @@ RSpec.describe 'Site Navigation', type: :view do
         expect(current_path).to eq(registration_path)
       end
 
+      it 'the log out page' do
+        visit root_path
+
+        within 'nav' do
+          expect(page).to_not have_content('Log Out')
+        end
+      end
+
+      it 'the upload an image page' do
+        visit root_path
+
+        within 'nav' do
+          expect(page).to_not have_content('Upload An Image')
+        end
+      end
+
       it 'can Search With One Keyword' do
         visit root_path
 
@@ -154,6 +170,16 @@ RSpec.describe 'Site Navigation', type: :view do
         end
 
         expect(current_path).to eq('/images')
+      end
+
+      it 'the images page' do
+        visit root_path
+
+        within 'nav' do
+          click_link 'Upload An Image'
+        end
+
+        expect(current_path).to eq('/images/new')
       end
 
       it 'the logout page' do
