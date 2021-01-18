@@ -31,6 +31,20 @@ RSpec.describe 'Site Navigation', type: :view do
   end
 
   describe 'As a Visitor', type: :feature do
+    describe 'I see a footer' do
+      it 'on the image path' do
+        visit '/images'
+
+        expect(page).to have_content('Click here to see the Github Repo this app is based on')
+      end
+
+      it 'on the root path' do
+        visit root_path
+
+        expect(page).to have_content('Click here to see the Github Repo this app is based on')
+      end
+    end
+
     describe 'I see a nav bar where I can link to' do
       it 'the nav bar' do
         visit root_path
@@ -184,6 +198,20 @@ RSpec.describe 'Site Navigation', type: :view do
         visit root_path
 
         expect(page).to_not have_link('Register')
+      end
+    end
+
+    describe 'I see a footer' do
+      it 'on the image path' do
+        visit '/images'
+
+        expect(page).to have_content('Click here to see the Github Repo this app is based on')
+      end
+
+      it 'on the root path' do
+        visit root_path
+
+        expect(page).to have_content('Click here to see the Github Repo this app is based on')
       end
     end
   end
