@@ -17,6 +17,6 @@
 <h3>Check Out All The Images We Have So Far:</h3>
 <% @images.each do |image| %>
   <% if !image.image.nil? %>
-    <%= image_tag(image.image, style:'width:10%') if image.image.attached? %>
+    <a href="<%= "/images/#{image.id}" %>"><%= image_tag(image.image, alt: "#{image.body}", style:'width:10%') if image.image.attached? %></a>
   <% end %>
 <% end %>
