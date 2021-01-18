@@ -7,25 +7,25 @@ RSpec.describe 'Site Navigation', type: :view do
     @image_1 = assign(:image, Image.create!(
       title: "MyString1",
       body: "MyText1",
-      keyword: "MyString",
+      keyword: "mystring",
       user_id: @user_1.id
     ))
     @image_2 = assign(:image, Image.create!(
       title: "MyString2",
       body: "MyText2",
-      keyword: "MyString2",
+      keyword: "mystring2",
       user_id: @user_1.id
     ))
     @image_3 = assign(:image, Image.create!(
       title: "MyString3",
       body: "MyText3",
-      keyword: "MyString",
+      keyword: "mystring",
       user_id: @user_2.id
     ))
     @image_4 = assign(:image, Image.create!(
       title: "MyString4",
       body: "MyText4",
-      keyword: "MyString2",
+      keyword: "mystring2",
       user_id: @user_2.id
     ))
   end
