@@ -49,7 +49,9 @@ RSpec.describe 'New Image', type: :view do
     end
 
     it 'can see go to /images/new when link clicked' do
-      click_link 'Upload An Image'
+      within '.logged_in_image' do
+        click_link 'Upload An Image'
+      end
       expect(current_path).to eq('/images/new')
     end
 
