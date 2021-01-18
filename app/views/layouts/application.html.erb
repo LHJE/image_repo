@@ -17,7 +17,7 @@
       <%= link_to 'Register', registration_path unless current_user %>
       <%= link_to 'Log In', login_path unless current_user %>
       <% if current_user %>
-        <%= link_to 'Upload An Image', 'images/new' %>
+        <%= link_to 'Upload An Image', '/images/new' %>
         <%= link_to 'Log Out', logout_path %>
       <% end %>
       <%= form_tag "/search", method: :get do %> <%= text_field_tag :keyword %> <%= submit_tag "Search With One Keyword", class: :button %>
