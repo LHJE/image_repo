@@ -12,7 +12,8 @@
   <body>
     <nav>
       <%= link_to 'Home', root_path %>
-      <%= link_to 'All Images', '/images' %>
+      <%= link_to 'Image Database', '/images' %>
+      <a href="https://github.com/LHJE/shopify_image_repo">GitHub Repo</a>
       <%= link_to 'Register', registration_path unless current_user %>
       <%= link_to 'Log In', login_path unless current_user %>
       <% if current_user %>
