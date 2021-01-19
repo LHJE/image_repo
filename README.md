@@ -1,11 +1,14 @@
 This simple [Image Repo](https://image-repo-lhje.herokuapp.com/) serves as an example image repository.  This was complete for a tech challenge, and represents the completion of a simple Ruby on Rails task.
 
+As a side note: because this is being hosted on Heroku, any images uploaded will disappear after 24 hours, so they'll have to either be edited or deleted by the original uploader if there is to be a non-broken image on the main page.
+
 ## Readme Content
 - [User Interface](#user-interface)
 - [Local Setup](#local-setup)
 - [Test Suite](#test-suite)
 - [Database Schema](#database-schema)
 - [Project Board](#project-board)
+- [Future Iterations](#future-iterations)
 - [Author](#author)
 - [License](#license)
 
@@ -45,6 +48,9 @@ This simple [Image Repo](https://image-repo-lhje.herokuapp.com/) serves as an ex
   - Styling
   - User profile page
   - Implementing GraphQL
+  
+## Future Iterations
+- Don't display images after their image has been deleted by Heroku's 24 hour limit
 
 ## Author
 - Luke Hunter James-Erickson  |  [Github](https://github.com/LHJE)  |  [LinkedIn](https://www.linkedin.com/in/luke-hunter-james-erickson-b65682143/)
