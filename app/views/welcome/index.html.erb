@@ -15,6 +15,7 @@
 <% end %>
 
 <h3>Check Out All The Images We Have So Far:</h3>
+<p>(Have all the images broken?  Well Shoot!  Heroku only stores the actual image for 24 hours, so help this space look cooler by registering and adding your own!)</p>
 <% @images.each do |image| %>
   <% if !image.image.nil? %>
     <a href="<%= "/images/#{image.id}" %>"><%= image_tag(image.image, alt: "#{image.body}", style:'width:10%') if image.image.attached? %></a>
