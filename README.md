@@ -56,7 +56,7 @@ As a side note: because this is being hosted on Heroku, any images uploaded will
 - Luke Hunter James-Erickson  |  [Github](https://github.com/LHJE)  |  [LinkedIn](https://www.linkedin.com/in/luke-hunter-james-erickson-b65682143/)
 
 ## License
-Copyright 2020 Luke Hunter James-Erickson
+Copyright 2021 Luke Hunter James-Erickson
 
 Permission is hereby granted to any person obtaining a copy of this software and associated materials to make use of the software and associated materials according to the terms of the MIT License (see included file `LICENSE_MIT`) IF AND ONLY IF they have not read any portion of this file.
 
